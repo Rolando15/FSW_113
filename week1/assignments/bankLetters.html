@@ -18,6 +18,8 @@
         var bankName = 'CashMoney Bank'
         let letterText = ''
 
+ 
+
         const customers = [ 
             { fname: 'Brianna', balance: -54.99, rate: 2.7 },
             { fname: 'Dillon', balance: 1014.94, rate: 5.1 },
@@ -30,6 +32,20 @@
             { fname: 'Petra', balance: 500.35, rate: 4.9 },
             { fname: 'Reggie', balance: 0, rate: 7.2 }
         ]
+   
+        for (i = 0; i < customers.length; i++){
+            
+            console.log(customers[i])
+            if (customers.indexOf(i++)) console.log(' Hello ' + customers.indexOf[0] + 'this is an attempt to collect a debt owed to ' + bankName +  'Your account is past due by the amount of' + customers.indexOf[0])
+            
+        }
+
+document.getElementById("letterDiv").innerHTML = letterText;
+
+
+
+
+
         // Create a loop that iterates through the customers array. Based on the customer's balance, create a personalized copy 
         // of the appropriate letter text from below. Each letter should be contained within a div with the style of 'letter'.
 
