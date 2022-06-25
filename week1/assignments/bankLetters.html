@@ -33,14 +33,43 @@
             { fname: 'Reggie', balance: 0, rate: 7.2 }
         ]
    
-        for (i = 0; i < customers.length; i++){
+        // for (i = 0; i < customers.length; i++){
             
-            console.log(customers[i])
-            if (customers.indexOf(i++)) console.log(' Hello ' + customers.indexOf[0] + 'this is an attempt to collect a debt owed to ' + bankName +  'Your account is past due by the amount of' + customers.indexOf[0])
+        //     console.log(customers[i])
+        //     if (customers.indexOf(i++)) console.log(' Hello ' + customers.indexOf[0] + 'this is an attempt to collect a debt owed to ' + bankName +  'Your account is past due by the amount of' + customers.indexOf[0])
             
-        }
+        // }
 
-document.getElementById("letterDiv").innerHTML = letterText;
+
+
+        const arryNegAccnt = customers.filter(function(customers){
+                return customers.balance <= -.01
+            })
+            
+            let NegAccnt = '<ol>'
+            arryNegAccnt.forEach(function(customers) {
+                NegAccnt +=  ` <letterDiv> <li>${customers.fname} greetings from ${bankName} your balance is:  (${customers.balance}) your rate is: (${customers.rate}) payment is needed <br> `
+            });
+
+            NegAccnt +=
+            document.querySelector('#letterDiv').innerHTML = NegAccnt
+
+
+            const arryUpToDate = customers.filter(function(customers){
+                return customers.balance >= -.01
+            })
+            
+            let Accnt = '<ol>'
+            arryUpToDate.forEach(function(customers) {
+                Accnt +=  ` <letterDiv> <li>${customers.fname} greetings from ${bankName} your balance is:  (${customers.balance}) your rate is: (${customers.rate}) NO payment is needed until next month <br> `
+            });
+
+            Accnt +=
+            document.querySelector('#letterDiv').innerHTML = Accnt
+
+            
+
+
 
 
 
