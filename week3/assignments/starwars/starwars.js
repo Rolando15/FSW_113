@@ -5,6 +5,19 @@
 // called 'getFromSWAPI()'
 
 function getFromSWAPI() {
+
+    function fetchData(){
+        var type = document.getElementById('queryType').value;
+        var item = document.getElementById('ItemID');
+
+        var button = document.getElementById('fetchButton');
+        button.addEventListener(onclick,(type,item));
+        
+       
+    }
+
+    fetchData()
+    
     // assign values to any necessary variables
     fetch(`https://swapi.dev/api/${queryType}/${itemID}`)
     .then(function (response) {
@@ -16,7 +29,17 @@ function getFromSWAPI() {
     .catch(function(err) {
         console.warn(err)
     })
+   
+
 }
+
+getFromSWAPI();
+
+function updateInfo(){
+
+
+}
+
 
 // create a new function called 'updateInfo()' that receives the data from 
 // the call to that function (see above). Use logic to write the appropriate
