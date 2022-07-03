@@ -5,8 +5,20 @@
 // modify this script to run a function called printCalendar() when the user clicks the "Go" button
 
 // modify this script to use the first day of the month the user selects in place of the const today 
+months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-const today = new Date('5/1/2021')
+for (i = 0; i < months.length;i++){
+    
+    let option = new Option(months[i], i+1)
+    document.getElementById('Month').appendChild(option)
+
+
+}
+
+
+function printCalendar(Month, Year){
+
+const today = new Date(Year, Month, 1)
 const month = today.getMonth()
 let days
 switch (month) {
@@ -45,3 +57,13 @@ while ( y < remainder) {
     document.getElementById('calendarDays').innerHTML += "<div class='blankDay'>&nbsp;</div>"
     y++
 }
+
+}
+document.getElementById("submit").addEventListener("click", function(){
+    
+    var Year =  (document.getElementById("Year").value);
+    var Month =(document.getElementById('Month').value);
+    printCalendar(Month, Year);
+
+    console.log(Month);
+});
