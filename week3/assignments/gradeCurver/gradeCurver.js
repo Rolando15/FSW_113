@@ -38,27 +38,33 @@ function convertArray(obj) {
 // empty lines, can you get the number of lines down to 8?
 
 function curveGrades() {
-    **sum = function (accumulator, currentValue) {
-        return accumulator + currentValue
-    }
+    
+    var submit = document.getElementById('submit');
+    submit.addEventListener(click(curveGrades)); 
+    submit.value.appendChild('grades');
+    console.log(submit);
 
-    **sumGrades = function(array) {
-        return array.reduce(sum)
-    }
+    
+    
+       sum = () => accumulator + currentValue;
+    
 
-    **aryGrades = convertArray(document.querySelector('#scores'))
+     sumGrades = () => array.reduce(sum);
+    
 
-    **minGrade = aryGrades.reduce(function(a, b) {
+    let aryGrades = convertArray(document.querySelector('#scores'))
+
+    minGrade = aryGrades.reduce(function(a, b) {
         return Math.min(a, b)
     })
     
-    **maxGrade = aryGrades.reduce(function(a, b) {
+    maxGrade = aryGrades.reduce(function(a, b) {
         return Math.max(a, b)
     })
     
-    **mean = sumGrades(aryGrades) / aryGrades.length
+    mean = sumGrades(aryGrades) / aryGrades.length
 
-    **range = maxGrade - minGrade
+    range = maxGrade - minGrade
 
     gradeSlice = range / 5
 
