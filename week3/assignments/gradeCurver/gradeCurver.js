@@ -3,6 +3,7 @@
 // create an event listener that calls the curveGrade() function when the Curve It!! button is clicked
 
 // create an event listener that resets the scores and grades to their defaults when the Reset button is clicked
+var gradesDiv = document.getElementById("grades")
 
 function applyBell(grade, index, ary) {
     switch (true) {
@@ -21,8 +22,11 @@ function applyBell(grade, index, ary) {
         default:
             ary[index] = 'F'
             break
+
     }
 }
+
+
 
 function convertArray(obj) {
     ary = obj.value.split(',')
@@ -37,38 +41,34 @@ function convertArray(obj) {
 // separate lines of code into single lines. It currently has 18 lines of code. Without counting  
 // empty lines, can you get the number of lines down to 8?
 
+var submit = document.getElementById('submit');
+submit.addEventListener("click", curveGrades)
+   
 function curveGrades() {
     
-    var submit = document.getElementById('submit');
-    submit.addEventListener(click(curveGrades)); 
-    submit.value.appendChild('grades');
-    console.log(submit);
-
-    
-    
-       sum = () => accumulator + currentValue;
-    
-
-     sumGrades = () => array.reduce(sum);
-    
-
     let aryGrades = convertArray(document.querySelector('#scores'))
+ 
+    sumGrades = aryGrades.reduce((acc, current)=>acc+current, 0)
 
-    minGrade = aryGrades.reduce(function(a, b) {
-        return Math.min(a, b)
-    })
+    minGrade = aryGrades.reduce((a, b) => Math.min (a, b))
     
-    maxGrade = aryGrades.reduce(function(a, b) {
-        return Math.max(a, b)
-    })
-    
-    mean = sumGrades(aryGrades) / aryGrades.length
+    maxGrade = aryGrades.reduce((a,b)=> Math.max(a, b))
+
+    mean = sumGrades / aryGrades.length
 
     range = maxGrade - minGrade
 
     gradeSlice = range / 5
 
-    aryGrades.forEach(applyBell)
-
     // write the value of aryGrades to the grades div in the HTML document
+   
+    aryGrades.forEach((grade, index) => applyBell(grade, index, aryGrades))
+    
+     gradesDiv.innerHTML=(aryGrades)
 }
+
+var reset = document.getElementById("reset")
+reset.addEventListener("click",()=>{
+    gradesDiv.innerHTML=("Curved Grades Show Here");
+
+});
