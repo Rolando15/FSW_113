@@ -4,8 +4,18 @@
 // Then use the spread operator to combine these arrays into a single array. 
 // Sort that array and display it in the 'AllItems' element on the scavenger.html document.
 
+var submit = document.getElementById('submit');
+submit.addEventListener("click", function(){
+
+
+});
+
+var allItems = document.getElementById('AllItems');
+allItems.Sort()
+
 function combineLists() {
 }
+
 
 // The following code is a bonus addition that facilitates data entry on the scavenger.html document.
 // If you first click in one of the textareas, you can then click scavenger hunt items in the unordered
